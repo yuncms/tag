@@ -1,12 +1,21 @@
 <?php
 
-namespace yuncms\tag\migrations;
+use yuncms\db\Migration;
+use yuncms\tag\models\Tag;
 
-use yii\db\Migration;
-
-class M171113060947Create_tag_table extends Migration
+/**
+ * Handles the creation of table `tag`.
+ */
+class m180409_035034_create_tag_table extends Migration
 {
+    /**
+     * @var string The table name.
+     */
+    public $tableName = '{{%tag}}';
 
+    /**
+     * {@inheritdoc}
+     */
     public function safeUp()
     {
         $tableOptions = null;
@@ -14,7 +23,7 @@ class M171113060947Create_tag_table extends Migration
             // http://stackoverflow.com/questions/766809/whats-the-difference-between-utf8-general-ci-and-utf8-unicode-ci
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
-        $this->createTable('{{%tag}}', [
+        $this->createTable($this->tableName, [
             'id' => $this->primaryKey()->unsigned()->comment('ID'),
             'name' => $this->string(50)->notNull()->unique()->comment('Name'),
             'title' => $this->string(150)->comment('Title'),
@@ -24,26 +33,24 @@ class M171113060947Create_tag_table extends Migration
             'letter' => $this->string(1)->comment('Letter'),
             'frequency' => $this->integer()->unsigned()->notNull()->defaultValue(0)->comment('Frequency'),
         ], $tableOptions);
+        $this->importTest();
     }
 
+    public function importTest()
+    {
+        $tags = ['php', 'java', 'c++', 'go', 'js', 'asp','c#'];
+        foreach ($tags as $tag) {
+            $model = new Tag(['name' => $tag]);
+            $model->scenario = Tag::SCENARIO_CREATE;
+            $model->save();
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function safeDown()
     {
-        $this->dropTable('{{%tag}}');
+        $this->dropTable($this->tableName);
     }
-
-
-    /*
-    // Use up()/down() to run migration code without a transaction.
-    public function up()
-    {
-
-    }
-
-    public function down()
-    {
-        echo "M171113060947Create_tag_table cannot be reverted.\n";
-
-        return false;
-    }
-    */
 }

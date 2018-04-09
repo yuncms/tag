@@ -1,11 +1,12 @@
 <?php
 
-namespace yuncms\tag\migrations;
-
 use yii\db\Query;
-use yii\db\Migration;
+use yuncms\db\Migration;
 
-class M171113061047Add_backend_menu extends Migration
+/**
+ * Class m180409_035115_add_backend_menu
+ */
+class m180409_035115_add_backend_menu extends Migration
 {
 
     public function safeUp()
@@ -20,7 +21,6 @@ class M171113061047Add_backend_menu extends Migration
             ['创建TAG', $id, '/tag/tag/create', 0, NULL],
             ['更新TAG', $id, '/tag/tag/update', 0, NULL],
         ]);
-
     }
 
     public function safeDown()
@@ -40,7 +40,7 @@ class M171113061047Add_backend_menu extends Migration
 
     public function down()
     {
-        echo "M171113061047Add_backend_menu cannot be reverted.\n";
+        echo "m180409_035115_add_backend_menu cannot be reverted.\n";
 
         return false;
     }
