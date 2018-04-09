@@ -1,17 +1,17 @@
 <?php
 
-use yii\helpers\Html;
-use xutl\inspinia\Box;
-use xutl\inspinia\Toolbar;
-use xutl\inspinia\Alert;
+use yuncms\helpers\Html;
+use yuncms\admin\widgets\Box;
+use yuncms\admin\widgets\Toolbar;
+use yuncms\admin\widgets\Alert;
 
 /* @var $this yii\web\View */
 /* @var $model yuncms\tag\models\Tag */
 
-$this->title = Yii::t('tag', 'Update Tag') . ': ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('tag', 'Manage Tag'), 'url' => ['index']];
+$this->title = Yii::t('yuncms/tag', 'Update Tag') . ': ' . $model->name;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('yuncms/tag', 'Manage Tag'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+$this->params['breadcrumbs'][] = Yii::t('yuncms', 'Update');
 ?>
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
@@ -24,11 +24,11 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
                 <div class="col-sm-4 m-b-xs">
                     <?= Toolbar::widget(['items' => [
                         [
-                            'label' => Yii::t('tag', 'Manage Tag'),
+                            'label' => Yii::t('yuncms/tag', 'Manage Tag'),
                             'url' => ['index'],
                         ],
                         [
-                            'label' => Yii::t('tag', 'Create Tag'),
+                            'label' => Yii::t('yuncms/tag', 'Create Tag'),
                             'url' => ['create'],
                         ],
                     ]]); ?>

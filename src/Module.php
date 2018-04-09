@@ -11,7 +11,7 @@ namespace yuncms\tag;
  * Class Module
  * @package yuncms\tag
  */
-class Module extends \yii\base\Module
+class Module extends \yuncms\base\Module
 {
 
 }

@@ -9,11 +9,10 @@ namespace yuncms\tag\frontend\controllers;
 
 use Yii;
 use yii\helpers\Url;
-use yii\web\Controller;
 use yii\filters\AccessControl;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
-use yii\web\Response;
+use yuncms\web\Controller;
 use yuncms\tag\models\Tag;
 
 /**
@@ -26,7 +25,7 @@ class TagController extends Controller
     {
         return [
             'access' => [
-                'class' => AccessControl::className(),
+                'class' => AccessControl::class,
                 'rules' => [
                     [
                         'allow' => true,

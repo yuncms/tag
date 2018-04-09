@@ -1,7 +1,7 @@
 <?php
 
-use yii\helpers\Html;
-use xutl\inspinia\ActiveForm;
+use yuncms\helpers\Html;
+use yuncms\admin\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model yuncms\tag\models\Tag */
@@ -25,7 +25,7 @@ use xutl\inspinia\ActiveForm;
 
 <div class="form-group">
     <div class="col-sm-4 col-sm-offset-2">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('tag', 'Create') : Yii::t('tag', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? Yii::t('yuncms', 'Create') : Yii::t('yuncms', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 </div>
 <?php ActiveForm::end(); ?>

@@ -9,9 +9,9 @@ namespace yuncms\tag\models;
 
 use Yii;
 use yii\behaviors\AttributeBehavior;
-use yii\db\ActiveRecord;
-use yii\helpers\ArrayHelper;
 use yii\helpers\Inflector;
+use yuncms\db\ActiveRecord;
+use yuncms\helpers\ArrayHelper;
 
 /**
  * Class Tag
@@ -41,7 +41,7 @@ class Tag extends ActiveRecord
     {
         $behaviors = parent::behaviors();
         $behaviors['slug'] = [
-            'class' => AttributeBehavior::className(),
+            'class' => AttributeBehavior::class,
             'attributes' => [
                 ActiveRecord::EVENT_BEFORE_INSERT => ['slug']
             ],
@@ -50,7 +50,7 @@ class Tag extends ActiveRecord
             }
         ];
         $behaviors['letter'] = [
-            'class' => AttributeBehavior::className(),
+            'class' => AttributeBehavior::class,
             'attributes' => [
                 ActiveRecord::EVENT_BEFORE_INSERT => ['letter']
             ],
@@ -90,7 +90,7 @@ class Tag extends ActiveRecord
             ['name', 'required'],
             ['name', 'match', 'pattern' => static::$nameRegexp],
             ['name', 'string', 'min' => 2, 'max' => 50],
-            ['name', 'unique', 'message' => Yii::t('tag', 'This name has already been taken')],
+            ['name', 'unique', 'message' => Yii::t('yuncms/tag', 'This name has already been taken')],
             [['title', 'slug'], 'string', 'max' => 255],
             ['letter', 'string', 'max' => 1],
             [['keywords', 'description'], 'safe'],
@@ -106,14 +106,14 @@ class Tag extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('tag', 'ID'),
-            'name' => Yii::t('tag', 'TAG'),
-            'slug' => Yii::t('tag', 'Slug'),
-            'title' => Yii::t('tag', 'Title'),
-            'keywords' => Yii::t('tag', 'Keyword'),
-            'description' => Yii::t('tag', 'Description'),
-            'frequency' => Yii::t('tag', 'Frequency'),
-            'letter' => Yii::t('tag', 'Letter'),
+            'id' => Yii::t('yuncms/tag', 'ID'),
+            'name' => Yii::t('yuncms/tag', 'TAG'),
+            'slug' => Yii::t('yuncms/tag', 'Slug'),
+            'title' => Yii::t('yuncms/tag', 'Title'),
+            'keywords' => Yii::t('yuncms/tag', 'Keyword'),
+            'description' => Yii::t('yuncms/tag', 'Description'),
+            'frequency' => Yii::t('yuncms/tag', 'Frequency'),
+            'letter' => Yii::t('yuncms/tag', 'Letter'),
         ];
     }
 

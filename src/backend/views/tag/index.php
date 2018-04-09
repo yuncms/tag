@@ -1,16 +1,16 @@
 <?php
 
-use yii\helpers\Html;
-use yii\grid\GridView;
-use xutl\inspinia\Box;
-use xutl\inspinia\Toolbar;
-use xutl\inspinia\Alert;
+use yuncms\helpers\Html;
+use yuncms\grid\GridView;
+use yuncms\admin\widgets\Box;
+use yuncms\admin\widgets\Toolbar;
+use yuncms\admin\widgets\Alert;
 
 /* @var $this yii\web\View */
 /* @var $searchModel yuncms\tag\models\TagSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('tag', 'Manage Tag');
+$this->title = Yii::t('yuncms/tag', 'Manage Tag');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="wrapper wrapper-content animated fadeInRight">
@@ -24,11 +24,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="col-sm-4 m-b-xs">
                     <?= Toolbar::widget(['items' => [
                         [
-                            'label' => Yii::t('tag', 'Manage Tag'),
+                            'label' => Yii::t('yuncms/tag', 'Manage Tag'),
                             'url' => ['index'],
                         ],
                         [
-                            'label' => Yii::t('tag', 'Create Tag'),
+                            'label' => Yii::t('yuncms/tag', 'Create Tag'),
                             'url' => ['create'],
                         ],
                     ]]); ?>
@@ -49,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'title',
                     'description',
                     'frequency',
-                    ['class' => 'yii\grid\ActionColumn', 'header' => Yii::t('tag', 'Operation'),],
+                    ['class' => 'yuncms\grid\ActionColumn'],
                 ],
             ]); ?>
             <?php Box::end(); ?>

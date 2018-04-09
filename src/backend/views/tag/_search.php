@@ -1,7 +1,7 @@
 <?php
 
-use yii\helpers\Html;
-use xutl\inspinia\ActiveForm;
+use yuncms\helpers\Html;
+use yuncms\admin\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model yuncms\tag\models\TagSearch */
@@ -40,8 +40,8 @@ use xutl\inspinia\ActiveForm;
     <?php // echo $form->field($model, 'frequency') ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('tag', 'Search'), ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton(Yii::t('tag', 'Reset'), ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton(Yii::t('yuncms', 'Search'), ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton(Yii::t('yuncms', 'Reset'), ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

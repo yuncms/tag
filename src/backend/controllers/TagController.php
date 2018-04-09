@@ -3,11 +3,11 @@
 namespace yuncms\tag\backend\controllers;
 
 use Yii;
-use yii\web\Response;
-use yii\web\Controller;
 use yii\widgets\ActiveForm;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
+use yuncms\web\Response;
+use yuncms\web\Controller;
 use yuncms\tag\models\Tag;
 use yuncms\tag\models\TagSearch;
 
@@ -23,7 +23,7 @@ class TagController extends Controller
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => VerbFilter::class,
                 'actions' => [
                     'delete' => ['POST'],
                 ],
@@ -72,7 +72,7 @@ class TagController extends Controller
             return ActiveForm::validate($model);
         }
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->getSession()->setFlash('success', Yii::t('tag', 'Create success.'));
+            Yii::$app->getSession()->setFlash('success', Yii::t('yuncms', 'Create success.'));
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -96,7 +96,7 @@ class TagController extends Controller
             return ActiveForm::validate($model);
         }
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->getSession()->setFlash('success', Yii::t('tag', 'Update success.'));
+            Yii::$app->getSession()->setFlash('success', Yii::t('yuncms', 'Update success.'));
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
@@ -118,7 +118,7 @@ class TagController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-        Yii::$app->getSession()->setFlash('success', Yii::t('tag', 'Delete success.'));
+        Yii::$app->getSession()->setFlash('success', Yii::t('yuncms', 'Delete success.'));
         return $this->redirect(['index']);
     }
 
