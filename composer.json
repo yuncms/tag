@@ -23,21 +23,7 @@
     "codeception/verify": "^0.4.0"
   },
   "extra": {
-    "yuncms": {
-      "id": "tag",
-      "translate": {
-        "class": "yii\\i18n\\PhpMessageSource",
-        "sourceLanguage": "en-US",
-        "basePath": "@yuncms/tag/messages"
-      },
-      "migrationNamespace": "yuncms\\tag\\migrations",
-      "backend": {
-        "class": "yuncms\\tag\\backend\\Module"
-      },
-      "frontend": {
-        "class": "yuncms\\tag\\frontend\\Module"
-      }
-    },
+    "yuncms": "mainfest.php",
     "branch-alias": {
       "dev-master": "2.0-dev"
     }
