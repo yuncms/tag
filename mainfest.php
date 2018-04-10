@@ -3,7 +3,7 @@ return [
     'id'=> 'tag',
     'migrationPath' => '@vendor/yuncms/tag/migrations',
     'translations' => [
-        'yuncms/attention' => [
+        'yuncms/tag' => [
             'class' => 'yii\i18n\PhpMessageSource',
             'sourceLanguage' => 'en-US',
             'basePath' => '@vendor/yuncms/tag/messages',
