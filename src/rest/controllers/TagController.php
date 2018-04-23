@@ -9,6 +9,7 @@ namespace yuncms\tag\rest\controllers;
 
 use Yii;
 use yii\data\ActiveDataProvider;
+use yii\rest\IndexAction;
 use yuncms\rest\ActiveController;
 use yuncms\tag\rest\models\Tag;
 
@@ -43,6 +44,35 @@ class TagController extends ActiveController
     {
         return array_merge(parent::verbs(), [
             'search' => ['GET'],
+        ]);
+    }
+
+    /**
+     * Prepares the data provider that should return the requested collection of the models.
+     *
+     * @param IndexAction $action
+     * @param mixed $filter
+     * @return ActiveDataProvider
+     * @throws \yii\base\InvalidConfigException
+     */
+    public function prepareDataProvider(IndexAction $action, $filter)
+    {
+        /* @var $modelClass \yii\db\BaseActiveRecord */
+        $modelClass = $this->modelClass;
+
+        $query = $modelClass::find();
+        if (!empty($filter)) {
+            $query->andWhere($filter);
+        }
+        return Yii::createObject([
+            'class' => ActiveDataProvider::class,
+            'query' => $query,
+            'sort' => [
+                'defaultOrder' => [
+                    'frequency' => SORT_DESC,
+                    'id' => SORT_ASC,
+                ]
+            ],
         ]);
     }
 
