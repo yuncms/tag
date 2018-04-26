@@ -24,14 +24,14 @@ class m180409_035034_create_tag_table extends Migration
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
         $this->createTable($this->tableName, [
-            'id' => $this->primaryKey()->unsigned()->comment('ID'),
+            'id' => $this->primaryKey()->comment('ID'),
             'name' => $this->string(50)->notNull()->unique()->comment('Name'),
             'title' => $this->string(150)->comment('Title'),
             'keywords' => $this->string(255)->comment('Keywords'),
             'description' => $this->text()->comment('Description'),
             'slug' => $this->string(80)->comment('Slug'),
             'letter' => $this->string(1)->comment('Letter'),
-            'frequency' => $this->integer()->unsigned()->notNull()->defaultValue(0)->comment('Frequency'),
+            'frequency' => $this->unsignedInteger()->notNull()->defaultValue(0)->comment('Frequency'),
         ], $tableOptions);
         $this->importTest();
     }
